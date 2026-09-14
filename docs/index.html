@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edwin Loera — IT & Customer Service Professional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       GLOBAL RESET & VARIABLES
+       ============================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy:       #1a2e50;   /* dark headings */
+      --blue:       #2563eb;   /* accent color  */
+      --blue-light: #eff6ff;   /* light blue bg */
+      --blue-mid:   #bfdbfe;   /* blue border   */
+      --gray-50:    #f8fafc;
+      --gray-100:   #f1f5f9;
+      --gray-200:   #e2e8f0;
+      --gray-400:   #94a3b8;
+      --gray-600:   #475569;
+      --gray-900:   #0f172a;
+      --white:      #ffffff;
+      --radius:     8px;
+      --radius-lg:  14px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--gray-900);
+      background: var(--white);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+
+    /* =============================================
+       NAVIGATION
+       ============================================= */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 0 2rem;
+    }
+
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    /* Change "EL" below to your initials */
+    .nav-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--gray-600);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+
+    /* =============================================
+       SECTION WRAPPER
+       ============================================= */
+    section {
+      padding: 4rem 2rem;
+    }
+
+    .inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 2rem;
+    }
+
+
+    /* =============================================
+       HERO SECTION
+       ============================================= */
+    #hero {
+      background: var(--gray-50);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 5rem 2rem 4rem;
+    }
+
+    /* The small pill badge at the top */
+    .hero-tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--blue);
+      background: var(--blue-light);
+      border: 1px solid var(--blue-mid);
+      border-radius: 99px;
+      padding: 4px 14px;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    #hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    /* The blue part of the name — your job title */
+    #hero h1 span {
+      color: var(--blue);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--gray-600);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.15s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 1px solid var(--gray-200);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+
+    /* =============================================
+       ABOUT SECTION
+       ============================================= */
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .about-text p {
+      color: var(--gray-600);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    /* The three stat cards on the right */
+    .stat-row {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .stat-card {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+    }
+
+    .stat-card .num {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .stat-card .lbl {
+      font-size: 12px;
+      color: var(--gray-600);
+      margin-top: 2px;
+    }
+
+
+    /* =============================================
+       SKILLS SECTION
+       ============================================= */
+    #skills {
+      background: var(--gray-50);
+      border-top: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+    }
+
+    /* Category label that spans the full row */
+    .skill-cat {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--gray-400);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 1.5rem 0 0.75rem;
+      grid-column: 1 / -1;
+    }
+
+    /* Individual skill chip */
+    .skill-chip {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--gray-600);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+
+
+    /* =============================================
+       EXPERIENCE SECTION
+       ============================================= */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .exp-card {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* Date pill badge */
+    .exp-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--blue);
+      background: var(--blue-light);
+      border: 1px solid var(--blue-mid);
+      padding: 3px 10px;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+
+    .exp-org {
+      font-size: 13px;
+      color: var(--gray-600);
+      margin-bottom: 0.75rem;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .exp-bullets li {
+      font-size: 13px;
+      color: var(--gray-600);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    /* The → arrow before each bullet */
+    .exp-bullets li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-size: 11px;
+      top: 2px;
+    }
+
+
+    /* =============================================
+       EDUCATION SECTION
+       ============================================= */
+    #education {
+      background: var(--gray-50);
+      border-top: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .edu-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .edu-degree {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-school {
+      font-size: 13px;
+      color: var(--blue);
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-dates {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--gray-400);
+    }
+
+
+    /* =============================================
+       CONTACT SECTION
+       ============================================= */
+    .contact-box {
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .contact-box h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-box p {
+      color: #94a3b8;
+      margin-bottom: 1.5rem;
+      font-size: 14px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 20px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--white);
+      transition: all 0.15s;
+    }
+
+    .contact-link:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-link svg {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+
+    /* =============================================
+       FOOTER
+       ============================================= */
+    footer {
+      text-align: center;
+      padding: 1.5rem 2rem;
+      font-size: 12px;
+      color: var(--gray-400);
+      border-top: 1px solid var(--gray-200);
+    }
+
+
+    /* =============================================
+       RESPONSIVE (mobile)
+       ============================================= */
+    @media (max-width: 640px) {
+      #about .about-grid,
+      .edu-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- =============================================
+       NAVIGATION BAR
+       Change "EL" to your initials.
+       Add or remove <li> items to change nav links.
+       ============================================= -->
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">EL</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- =============================================
+       HERO SECTION
+       Edit your name, job title, and short bio here.
+       ============================================= -->
+  <section id="hero">
+    <div class="inner">
+      <!-- Small pill at the top — change this text anytime -->
+      <div class="hero-tag">Open to opportunities</div>
+
+      <!-- Your name + job title. The <span> makes the title blue. -->
+      <h1>
+        Edwin Loera<br>
+        <span>IT Support &amp; PC Technician</span>
+      </h1>
+
+      <!-- One or two sentences about yourself -->
+      <p class="hero-sub">
+        Computer Information &amp; Science graduate with 15+ years in customer service
+        and hands-on experience building, repairing, and maintaining PCs.
+        Based in San Diego, CA.
+      </p>
+
+      <!-- Two call-to-action buttons -->
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">
+          <!-- Email icon (SVG) -->
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,12 2,6"/>
+          </svg>
+          Get in touch
+        </a>
+        <a href="#experience" class="btn btn-outline">View my work →</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       ABOUT SECTION
+       Edit the two paragraphs and the three stat cards.
+       ============================================= -->
+  <section id="about">
+    <div class="inner">
+      <p class="section-label">About me</p>
+      <h2 class="section-title">A little background</h2>
+
+      <div class="about-grid">
+
+        <!-- Left column: bio text -->
+        <div class="about-text">
+          <p>
+            I'm a San Diego–based IT professional and PC technician finishing up my
+            A.S. in Computer Information &amp; Science at Miramar College. I've spent
+            years diagnosing hardware issues, assembling custom builds, and keeping
+            office systems running smoothly — alongside a long career in guest services
+            where I learned how to communicate clearly and solve problems quickly.
+          </p>
+          <p>
+            I enjoy the puzzle of figuring out what's wrong with a machine just as much
+            as helping a frustrated customer walk away happy. I'm now looking to move
+            fully into IT support, help desk, or technical roles where I can put both
+            skill sets to work.
+          </p>
+        </div>
+
+        <!-- Right column: three stat cards -->
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="num">15+</div>
+            <div class="lbl">Years in customer-facing roles</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">A.S.</div>
+            <div class="lbl">Computer Information &amp; Science, 2026</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">SD</div>
+            <div class="lbl">San Diego, CA — open to local &amp; remote work</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       SKILLS SECTION
+       To add a skill: copy a <div class="skill-chip"> block and change the text.
+       To remove a skill: delete the entire <div class="skill-chip">...</div>.
+       To add a new category: copy a <div class="skill-cat"> and change the text.
+       ============================================= -->
+  <section id="skills">
+    <div class="inner">
+      <p class="section-label">Skills</p>
+      <h2 class="section-title">What I work with</h2>
+
+      <div class="skills-grid">
+
+        <!-- Category label -->
+        <div class="skill-cat">Technical</div>
+
+        <!-- Skill chips — add or remove as needed -->
+        <div class="skill-chip"><span class="skill-dot"></span>PC Hardware Repair</div>
+        <div class="skill-chip"><span class="skill-dot"></span>Custom PC Builds</div>
+        <div class="skill-chip"><span class="skill-dot"></span>Windows OS</div>
+        <div class="skill-chip"><span class="skill-dot"></span>Driver &amp; Software Updates</div>
+        <div class="skill-chip"><span class="skill-dot"></span>Network Troubleshooting</div>
+        <div class="skill-chip"><span class="skill-dot"></span>IT Helpdesk Support</div>
+        <div class="skill-chip"><span class="skill-dot"></span>Preventive Maintenance</div>
+        <div class="skill-chip"><span class="skill-dot"></span>Component Sourcing</div>
+
+        <!-- Second category -->
+        <div class="skill-cat">Professional</div>
+
+        <div class="skill-chip"><span class="skill-dot"></span>Customer Service</div>
+        <div class="skill-chip"><span class="skill-dot"></span>Communication</div>
+        <div class="skill-chip"><span class="skill-dot"></span>Problem-Solving</div>
+        <div class="skill-chip"><span class="skill-dot"></span>Team Collaboration</div>
+        <div class="skill-chip"><span class="skill-dot"></span>Organization</div>
+        <div class="skill-chip"><span class="skill-dot"></span>Time Management</div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       EXPERIENCE SECTION
+       To add a job: copy an entire <div class="exp-card">...</div> block.
+       To remove a job: delete the entire exp-card block.
+       To add a bullet point: copy a <li> inside exp-bullets and change the text.
+       ============================================= -->
+  <section id="experience">
+    <div class="inner">
+      <p class="section-label">Experience</p>
+      <h2 class="section-title">Where I've worked</h2>
+
+      <div class="exp-list">
+
+        <!-- Job 1 -->
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-title">PC Technician &amp; IT Support Specialist</div>
+            <div class="exp-date">Ongoing</div>
+          </div>
+          <div class="exp-org">Self-Employed / Family Business — San Diego, CA</div>
+          <div class="edu-dates">Aug 2024 – Present</div>
+          <ul class="exp-bullets">
+            <li>Build and configure custom desktop PCs based on client needs and budget, sourcing all components.</li>
+            <li>Diagnose and repair hardware failures across GPUs, RAM, storage drives, power supplies, and motherboards.</li>
+            <li>Perform OS installations, driver updates, and software configuration on Windows systems.</li>
+            <li>Conduct biannual office PC maintenance — dust removal, thermal paste replacement, and hardware inspections.</li>
+            <li>Troubleshoot network performance including router setup, speed testing, and connectivity fixes.</li>
+          </ul>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-title">Guest Services Associate</div>
+            <div class="exp-date">2009 – Present</div>
+          </div>
+          <div class="exp-org">Various Retail &amp; Food Service Employers — San Diego, CA</div>
+          <ul class="exp-bullets">
+            <li>Delivered consistent customer service across fast food, retail, and order fulfillment roles for 15+ years.</li>
+            <li>Managed cashier operations, order pickup, and front-end guest services with accuracy under high volume.</li>
+            <li>Trained new team members and resolved customer concerns to drive positive experiences.</li>
+          </ul>
+        </div>
+
+        <!-- Add more jobs here by copying a .exp-card block above -->
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       EDUCATION SECTION
+       To add a school: copy an <div class="edu-card">...</div> block.
+       ============================================= -->
+  <section id="education">
+    <div class="inner">
+      <p class="section-label">Education</p>
+      <h2 class="section-title">My academic background</h2>
+
+      <div class="edu-grid">
+
+        <div class="edu-card">
+          <div class="edu-degree">A.S. — Computer Information &amp; Science</div>
+          <div class="edu-school">San Diego Miramar College, SDCCD</div>
+          <div class="edu-dates">Aug 2019 – May 2026</div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-degree">High School Diploma</div>
+          <div class="edu-school">Canyon Hills High School</div>
+          <div class="edu-dates">Sep 2015 – May 2019</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       CONTACT SECTION
+       Update your email address, phone number, and city.
+       ============================================= -->
+  <section id="contact">
+    <div class="inner">
+      <div class="contact-box">
+        <h3>Let's work together</h3>
+        <p>I'm actively looking for IT support, help desk, or PC technician roles. Reach out anytime.</p>
+        <div class="contact-links">
+
+          <!-- Replace the email address in both href and the visible text -->
+          <a href="mailto:eloera4360@gmail.com" class="contact-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            eloera4360@gmail.com
+          </a>
+
+          <!-- Replace the phone number in href (digits only) and the visible text -->
+          <a href="tel:6196298516" class="contact-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.81.31 1.6.57 2.36a2 2 0 0 1-.45 2.11L8.1 9.1a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.76.26 1.55.45 2.36.57A2 2 0 0 1 22 16.92z"/></svg>
+            (619) 629-8516
+          </a>
+
+          <a href="https://maps.google.com/?q=San+Diego,+CA" class="contact-link" aria-label="Open San Diego, CA in Google Maps (opens in a new tab)" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            San Diego, CA
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       FOOTER
+       Update your name here.
+       ============================================= -->
+  <footer>
+    Edwin Loera · San Diego, CA · Built with HTML &amp; CSS
+  </footer>
+
+
+</body>
+</html>
